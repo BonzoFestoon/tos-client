@@ -90,7 +90,7 @@ namespace Adapter
                     //this.queue.Push(new Quote(
                     //    data.Item1,
                     //    data.Item2,
-                     //   double.Parse(refresh[1, i].ToString())));
+                    //   double.Parse(refresh[1, i].ToString())));
                 }
             }
         }

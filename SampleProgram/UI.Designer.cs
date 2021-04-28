@@ -1,20 +1,19 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using Adapter;
 using Microsoft.Win32;
-using Adapter;
-using System.ComponentModel;
+using System;
 using System.Collections;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SampleGUI
 {
-    
     partial class UI
     {
-        
+
         /// Required designer variable.
         private System.ComponentModel.IContainer components = null;
 
@@ -395,7 +394,7 @@ namespace SampleGUI
 
         private void OnGetDataClicked(object sender, EventArgs e)
         {
-            
+
             var outputFields = new[] {
                 lastValue,
                 bidValue,
@@ -411,7 +410,7 @@ namespace SampleGUI
             {
                 this.displayData(outputFields[i], this.GetQuotesData(outputFields[i].Tag.ToString(), tickerValue.Text));
             }
-            
+
         }
 
         private void OnPLClicked(object sender, EventArgs e)
@@ -429,19 +428,19 @@ namespace SampleGUI
 
         }
 
-        
+
 
 
         private String GetQuotesData(String type, String ticker)
         {
-           
+
             int heartbeat = 1;
             var tosClassId = new Guid(Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Tos.RTD\CLSID", "", null).ToString());
             var client = new RtdClient(tosClassId, heartbeat);
-            
+
             // Get quotes (RTD Server)
             var value = Client.getQuotes(client, type, ticker);
-            
+
             this.status.Text = "Done";
 
             return value.ToString();
@@ -449,9 +448,9 @@ namespace SampleGUI
 
         private void displayData(TextBox textfield, String value)
         {
-            
+
             textfield.Text = value;
-  
+
         }
 
 

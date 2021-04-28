@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 
+
 namespace SampleProgram.Properties
 {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
